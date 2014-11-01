@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Dynamic Page Test</title>
+	<script src="js/jquery.js"></script>
+   <script src="js/Usual_Constants.js"></script> 
+   <script src="js/Usual.js"></script>
+   <script src="js/js_dynamicJsonCustomentity.js"></script>
+  </head>
+  <body ng-controller="AppCtrl" ng-cloak="">      
+	 <table style="width: 1550px">
+    <tr>
+        <td style="width: 5%">
+            Module
+        </td>
+        <td colspan ="8"style="width: 25%">
+            <select id="selectModule" onchange="customEntity.LoadCustomEntity()" style="width: 25%">
+                <option value="Ca" selected="selected">Candidate Management</option>
+                <option value="Job">Job Management</option>
+                <option value="Off">Offer Management</option>
+                <%--
+                <option value="4">Organization Management</option>
+                <option value="5">User Management</option>
+                <option value="6">VendorSelfService Management</option>
+                <option value="7">EmployeeReferral Management</option>--%>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 5%">
+            Mode
+        </td>
+        <td colspan ="8"style="width: 25%">
+            <select id="selectMode" onchange="customEntity.LoadCustomEntity()" style="width: 25%">
+                <option value="0" selected="selected">Insert</option>
+                <option value="1">ReadOnly</option>
+                <option value="3">Both</option>
+                <%--
+                <option value="4">Organization Management</option>
+                <option value="5">User Management</option>
+                <option value="6">VendorSelfService Management</option>
+                <option value="7">EmployeeReferral Management</option>--%>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="font18 color_a" colspan="2">
+            <small id="tdCustomFieldHeader" >Custom Fields Template</small>
+        </td>
+    </tr>
+    <tr>
+        <th style="width: 9%; overflow:hidden; white-space:nowrap">
+            Json Property Name
+        </th>
+        <th style="width: 9%; overflow:hidden; white-space:nowrap">
+            Label
+        </th>
+        <th style="width: 6%; overflow:hidden; white-space:nowrap">
+            Json Property Type
+        </th>
+        <th style="width: 10%; overflow:hidden; white-space:nowrap">
+            Element Type
+        </th>
+        <th style="width: 5%; overflow:hidden; white-space:nowrap">
+            Max Length
+        </th>
+        <th style="width: 2%; overflow:hidden; white-space:nowrap">
+            Visibility
+        </th>
+        <th style="width: 2%; overflow:hidden; white-space:nowrap">
+            Mandatory
+        </th>
+        <th style="width: 9%; overflow:hidden; white-space:nowrap">
+            Link To
+        </th>
+        <th style="width: 9%; overflow:hidden; white-space:nowrap">
+            Rule
+        </th>
+        <th style="width: 9%; overflow:hidden; white-space:nowrap">
+            Custom Error
+        </th>
+        <th style="width: 10%; overflow:hidden; white-space:nowrap">
+            Catalog Type
+        </th>
+        <th style="width: 10%; overflow:hidden; white-space:nowrap">
+            Custom Method
+        </th>
+        <th style="width: 9%; overflow:hidden; white-space:nowrap">
+            Action Name
+        </th>
+        <th style="width: 9%; overflow:hidden; white-space:nowrap">
+            Group Name
+        </th>
+    </tr>
+    <tr>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="text" id="txt_PropertyName0" style="width:100%; overflow:hidden; padding-left:5px"/>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="text" id="txt_LabelText0" style="width:100%; overflow:hidden; padding-left:5px"/>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <select id="dropDown_PropertyType0" style="width:100%; overflow:hidden; padding-left:5px">
+            </select>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <select id="dropDown_ElementType0" style="width:100%; overflow:hidden; padding-left:5px" onchange="loadCatalogTypeInDropdown(0)">
+            </select>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="text" id="txt_MaxLength0" style="width:100%; overflow:hidden; padding-left:5px" maxlength="3" onkeypress="return validate_int_only(event)"/>
+        </td>
+        <td style=" overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="checkbox" id="EditableCheckBox0" style="width:50%; overflow:hidden; padding-left:5px"/>
+        </td>
+        <td style=" overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="checkbox" id="MandatoryCheckBox0" style="width:50%; overflow:hidden; padding-left:5px"/>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="text" id="txt_LinkToText0" style="width:100%; overflow:hidden; padding-left:5px"/>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="text" id="txt_RuleText0" style="width:100%; overflow:hidden; padding-left:5px"/>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="text" id="txt_ErrorText0" style="width:100%; overflow:hidden; padding-left:5px"/>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <select id="dropDown_CatalogType0" style="width:100%; overflow:hidden; padding-left:5px">
+            </select>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="text" id="txt_CustomValidation0" style="width:100%; overflow:hidden; padding-left:5px"/>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="text" id="txt_ActionName0" style="width:100%; overflow:hidden; padding-left:5px"/>
+        </td>
+        <td style="width: 9%; overflow:hidden; white-space:nowrap;padding: 5px">
+            <input type="text" id="txt_GroupName0" style="width:100%; overflow:hidden; padding-left:5px"/>
+        </td>
+        <td class="buttons fright" style="border-bottom: 0pt none; padding: 5px 5px 0pt 0pt;">
+            <a href="javascript:customEntity.AddEntitiesToGrid(0);" class="positive_a" id="A1">Add</a>
+        </td>
+    </tr>
+    <tr>
+    <td class="font18 color_a">
+            <small  id="Small1">Custom Fields</small>
+        </td>
+    </tr>
+    <tr style="width:100%">
+        <td colspan="16"  style="width:100%">
+            <div id="EntityConfigurationdiv"  style="width:100%">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="15">
+            <div id="btGridPropertyUpdate" style="border-bottom: 0pt none; padding: 5px 5px 0pt 0pt;" class="buttons fright">
+                <a href="javascript:customEntity.UpdateCustomEntity();" class="positive_f" id="btnUpdate">
+                    Update Entities</a></div>
+        </td>
+    </tr>
+</table>
+<table id="CandidatetableTemplate" style="display: none">
+    <tr template="Yes">
+        <td elementtype="label">
+        </td>
+        <td eletype="data">
+            <input type="text" elementtype="TextBox" />
+            <input type="radio" elementtype="Radio" />
+            <input type="checkbox" elementtype="CheckBox" />
+            <textarea rows="10" elementtype="TextArea"></textarea>
+            <select elementtype="SingleCombo">
+            </select>
+            <div elementtype="Combo">
+            </div>
+            <%--<div elementtype="SingleCustmCombo">
+            </div>--%>
+            <div style="float: left;" elementtype="DTPicker">
+                <input type="text" /><img width="16" height="16" border="0" alt="Pick a date" src="images/Calender.png" /></div>
+            <div style="float: left;" elementtype="DTPickerNoImg">
+                <input type="text" /></div>
+            <div style="float: left;" elementtype="Attachment">
+            </div>
+            <span style="padding-left: 5px;" class="red" elementtype="Mandatory">*</span>
+            <span style="padding-left: 5px;" class="red" elementtype="ErrorText"></span>
+            <div elementtype="MaxLengthSpan">
+            </div>
+        </td>
+    </tr>
+    <tr>
+    </tr>
+</table>
+<div id="div_groupId">
+</div>
+<div id="div_groupIdReadOnly">
+</div>
+
+	 
+  </body>
+</html>
